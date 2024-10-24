@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest identifier="simple-scorm-1.2"
+          version="1.0"
+          xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2"
+          xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.imsproject.org/xsd/imscp_rootv1p1p2
+                              imscp_v1p1.xsd
+                              http://www.adlnet.org/xsd/adlcp_rootv1p2
+                              adlcp_v1p2.xsd">
+    <organizations default="default-org">
+        <organization identifier="default-org">
+            <title>Simple SCORM 1.2 Example</title>
+            <item identifier="item-1" identifierref="resource-1">
+                <title>Simple Lesson</title>
+            </item>
+        </organization>
+    </organizations>
+    <resources>
+        <resource identifier="resource-1" type="webcontent" href="index.html" adlcp:scormType="sco">
+            <file href="index.html"/>
+            <file href="SCORM_API_wrapper.js"/>
+        </resource>
+    </resources>
+</manifest>

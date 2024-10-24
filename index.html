@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SCORM 1.2 Example</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to the CSS file -->
+    <script src="scorm-api-wrapper/SCORM_API_wrapper.js"></script>
+</head>
+<body>
+<h1>Simple SCORM 1.2 Example</h1>
+<div style="">v1.0</div>
+
+<button id="complete-with-no-score" onclick="complete()">Complete without sending score</button>
+<button id="complete-with-80" onclick="completeWith80()">Complete with score 80</button>
+<button id="fail-with-40" onclick="failWith40()">Fail with score 40</button>
+
+
+<script>
+    var scorm = pipwerks.SCORM;
+    scorm.version = "1.2";
+
+    function initialize() {
+        scorm.init();
+    }
+
+    function complete() {
+        scorm.set("cmi.core.lesson_status", "completed");
+        scorm.save();
+        scorm.quit();
+    }
+
+    function completeWith80() {
+        scorm.set("cmi.core.score.raw", 80);
+        scorm.set("cmi.core.lesson_status", "completed");
+        scorm.save();
+        scorm.quit();
+    }
+
+    function failWith40() {
+        scorm.set("cmi.core.score.raw", 40);
+        scorm.set("cmi.core.lesson_status", "failed");
+        scorm.save();
+        scorm.quit();
+    }
+
+    window.onload = initialize;
+</script>
+</body>
+</html>
